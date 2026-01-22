@@ -14,7 +14,6 @@ const navItems: Array<{ label: string; href: string; isExternal?: boolean }> = [
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
   { label: "Blog", href: "/blog", isExternal: true },
-  { label: "Contact", href: "#contact" },
 ];
 
 export default function Navigation({
