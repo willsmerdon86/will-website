@@ -20,6 +20,11 @@ export const metadata: Metadata = {
       "Revenue accounting leader building finance operations at Cursor. Previously at Stripe and Fivetran.",
     type: "website",
   },
+  alternates: {
+    types: {
+      "application/rss+xml": "/feed.xml",
+    },
+  },
 };
 
 export default function RootLayout({

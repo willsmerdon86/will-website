@@ -1,6 +1,6 @@
 "use client";
 
-import { Linkedin, ArrowUp } from "lucide-react";
+import { ArrowUp, Linkedin, Rss } from "lucide-react";
 
 export default function Footer(): JSX.Element {
   const scrollToTop = (): void => {
@@ -29,6 +29,14 @@ export default function Footer(): JSX.Element {
               aria-label="LinkedIn"
             >
               <Linkedin className="w-5 h-5" />
+            </a>
+            <a
+              href="/feed.xml"
+              className="p-3 bg-neutral-800 rounded-full hover:bg-neutral-700 transition-colors"
+              aria-label="RSS Feed"
+              title="Subscribe to RSS Feed"
+            >
+              <Rss className="w-5 h-5" />
             </a>
             <a
               href="#contact"

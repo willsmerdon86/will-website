@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, FormEvent, ChangeEvent } from "react";
-import { Send, Linkedin, CheckCircle, AlertCircle } from "lucide-react";
+import { AlertCircle, CheckCircle, Linkedin, Send } from "lucide-react";
+import { ChangeEvent, FormEvent, useState } from "react";
 
 interface FormData {
   name: string;
@@ -33,27 +33,29 @@ export default function Contact(): JSX.Element {
     setStatus("sending");
 
     try {
-      // Option 1: Use mailto link (simple, no backend required)
-      const mailtoLink = `mailto:will.smerdon@gmail.com?subject=${encodeURIComponent(
-        `[Website Contact] ${formData.subject}`
-      )}&body=${encodeURIComponent(
-        `Name: ${formData.name}\nEmail: ${formData.email}\n\n${formData.message}`
-      )}`;
-      
-      // Open mailto link
-      window.location.href = mailtoLink;
-      
-      // Mark as success after a brief delay
-      setTimeout(() => {
-        setStatus("success");
-        setFormData({ name: "", email: "", subject: "", message: "" });
-      }, 500);
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.error || "Failed to send message");
+      }
+
+      setStatus("success");
+      setFormData({ name: "", email: "", subject: "", message: "" });
 
       // Reset status after 5 seconds
       setTimeout(() => {
         setStatus("idle");
       }, 5000);
-    } catch {
+    } catch (error) {
+      console.error("Contact form error:", error);
       setStatus("error");
       setTimeout(() => {
         setStatus("idle");
@@ -217,8 +219,12 @@ export default function Contact(): JSX.Element {
 
               {status === "success" && (
                 <p className="text-sm text-teal-600 text-center">
-                  Your email client should have opened with a pre-filled message.
-                  If it didn't open, please reach out via LinkedIn.
+                  Thanks for reaching out! I'll get back to you soon.
+                </p>
+              )}
+              {status === "error" && (
+                <p className="text-sm text-red-600 text-center">
+                  Something went wrong. Please try again or reach out via LinkedIn.
                 </p>
               )}
             </form>
