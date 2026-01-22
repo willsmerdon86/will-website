@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 interface NavigationProps {
@@ -8,11 +9,11 @@ interface NavigationProps {
   setIsMenuOpen: (open: boolean) => void;
 }
 
-const navItems: Array<{ label: string; href: string }> = [
+const navItems: Array<{ label: string; href: string; isExternal?: boolean }> = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
-  { label: "Activity", href: "#activity" },
+  { label: "Blog", href: "/blog", isExternal: true },
   { label: "Contact", href: "#contact" },
 ];
 
@@ -50,15 +51,25 @@ export default function Navigation({
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {navItems.map((item) => (
-              <a
-                key={item.href}
-                href={item.href}
-                className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors link-underline"
-              >
-                {item.label}
-              </a>
-            ))}
+            {navItems.map((item) =>
+              item.isExternal ? (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors link-underline"
+                >
+                  {item.label}
+                </Link>
+              ) : (
+                <a
+                  key={item.href}
+                  href={item.href}
+                  className="text-sm text-neutral-600 hover:text-neutral-900 transition-colors link-underline"
+                >
+                  {item.label}
+                </a>
+              )
+            )}
             <a
               href="#contact"
               className="text-sm px-4 py-2 bg-neutral-900 text-white rounded-full hover:bg-neutral-800 transition-colors"
@@ -81,16 +92,27 @@ export default function Navigation({
         {isMenuOpen && (
           <div className="md:hidden pt-4 pb-2">
             <div className="flex flex-col gap-4">
-              {navItems.map((item) => (
-                <a
-                  key={item.href}
-                  href={item.href}
-                  className="text-lg text-neutral-600 hover:text-neutral-900 transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  {item.label}
-                </a>
-              ))}
+              {navItems.map((item) =>
+                item.isExternal ? (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="text-lg text-neutral-600 hover:text-neutral-900 transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ) : (
+                  <a
+                    key={item.href}
+                    href={item.href}
+                    className="text-lg text-neutral-600 hover:text-neutral-900 transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </a>
+                )
+              )}
               <a
                 href="#contact"
                 className="text-lg text-neutral-600 hover:text-neutral-900 transition-colors"
