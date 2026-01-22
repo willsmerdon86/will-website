@@ -9,34 +9,34 @@ interface PostItem {
   comments?: number;
 }
 
-// Same posts data as the posts API - in production you'd want a shared data source
+// Same posts data as the posts API
 const posts: PostItem[] = [
   {
     id: "1",
     content:
-      "Excited to share that I've joined Cursor to lead Revenue Accounting and Order to Cash operations. Looking forward to building the financial infrastructure for one of the fastest-growing AI developer tools companies...",
-    url: "https://www.linkedin.com/in/willsmerdon/recent-activity/all/",
-    date: "Nov 2025",
-    likes: 127,
-    comments: 23,
+      "We investigated a finance anomaly in under an hour using Cursor + Databricks. This morning, finance flagged an unusual spike in customer credits. Nobody knew the cause. The entire investigation happened in a single Slack thread. Cursor connected to Databricks via MCP—discovering tables autonomously, understanding our data model, and building business logic conversationally. Faster than scheduling a meeting to discuss it.",
+    url: "https://www.linkedin.com/posts/willsmerdon_cursor-ai-databricks-activity-7419629279803568129-k_Bn",
+    date: "Jan 2026",
+    likes: 419,
+    comments: 26,
   },
   {
     id: "2",
     content:
-      "After an incredible journey at Fivetran, I'm grateful for the opportunity to have scaled the revenue accounting function during a period of rapid growth. Thank you to everyone who made this chapter so rewarding...",
-    url: "https://www.linkedin.com/in/willsmerdon/recent-activity/all/",
-    date: "Nov 2025",
-    likes: 89,
-    comments: 15,
+      "Two weeks ago, I posted about being \"gobsmacked\" by what's possible when a non-developer gets access to tools like Cursor. Tuesday night, between finishing work and going to bed, I turned a simple idea into something that feels like a product. By the end, I had PDF extraction, multi-system validation, confidence scoring, Stripe reconciliation, exception workflows, and audit logging. Domain expertise became the input. Working software became the output.",
+    url: "https://www.linkedin.com/posts/willsmerdon_cursor-accounting-ai-activity-7418115298656059394-ZdKt",
+    date: "Jan 2026",
+    likes: 106,
+    comments: 3,
   },
   {
     id: "3",
     content:
-      "Reflecting on my time at Stripe: From 700 employees to a global fintech leader. Key lesson learned - automation isn't just about efficiency, it's about enabling your team to focus on what matters most...",
-    url: "https://www.linkedin.com/in/willsmerdon/recent-activity/all/",
-    date: "2023",
-    likes: 156,
-    comments: 31,
+      "We're growing the Revenue Accounting & Order to Cash team at Cursor, and I'm hiring for two founding roles that will help define how revenue actually works as we scale. This is a true build phase. The product is moving fast, growth is real, and the back office is early—which means a lot of opportunity to design things the right way from the start. I'm looking for people who've built before, care about being strong business partners, and want to understand the product and company.",
+    url: "https://www.linkedin.com/posts/willsmerdon_cursor-accounting-revenueaccounting-activity-7414492576298389505-ECr6",
+    date: "Jan 2026",
+    likes: 154,
+    comments: 4,
   },
 ];
 
@@ -50,7 +50,7 @@ function escapeXml(text: string): string {
 }
 
 function parseDateToRFC822(dateStr: string): string {
-  // Handle formats like "Nov 2025" or "2023"
+  // Handle formats like "Jan 2026" or "2023"
   const months: Record<string, number> = {
     Jan: 0, Feb: 1, Mar: 2, Apr: 3, May: 4, Jun: 5,
     Jul: 6, Aug: 7, Sep: 8, Oct: 9, Nov: 10, Dec: 11,
@@ -60,7 +60,7 @@ function parseDateToRFC822(dateStr: string): string {
   let date: Date;
   
   if (parts.length === 2) {
-    // Format: "Nov 2025"
+    // Format: "Jan 2026"
     const month = months[parts[0]] ?? 0;
     const year = parseInt(parts[1], 10);
     date = new Date(year, month, 1);
@@ -75,7 +75,7 @@ function parseDateToRFC822(dateStr: string): string {
 }
 
 export async function GET(): Promise<NextResponse> {
-  const siteUrl = "https://willsmerdon.com"; // Update with your actual domain
+  const siteUrl = "https://will-website-iota.vercel.app";
   const lastBuildDate = new Date().toUTCString();
 
   const rssItems = posts
