@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import Link from "next/link";
 import { Menu, X } from "lucide-react";
+import Link from "next/link";
+import { useEffect, useState } from "react";
 
 interface NavigationProps {
   isMenuOpen: boolean;
@@ -13,7 +13,7 @@ const navItems: Array<{ label: string; href: string; isExternal?: boolean }> = [
   { label: "About", href: "#about" },
   { label: "Experience", href: "#experience" },
   { label: "Skills", href: "#skills" },
-  { label: "Blog", href: "/blog", isExternal: true },
+  { label: "Writing", href: "/blog", isExternal: true },
 ];
 
 export default function Navigation({

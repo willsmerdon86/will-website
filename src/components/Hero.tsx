@@ -51,10 +51,10 @@ export default function Hero(): JSX.Element {
 
         {/* Philosophy */}
         <p className="text-base text-neutral-500 mb-10 max-w-3xl mx-auto leading-relaxed">
-          I lead revenue accounting and operations functions that connect people, processes, 
-          and systems to drive scale and reliability. My approach blends accounting depth with 
-          a builder's mindset—using automation, data, and cross-functional alignment to simplify 
-          complexity and create leverage for the business.
+          15 years across accounting, operations, and technology — building and leading 
+          QTC/OTC functions at companies operating at exceptional scale and complexity. 
+          I bring a technology-forward approach to process design and automation, using AI 
+          to build internal tools and accelerate everything from investigations to month-end close.
         </p>
 
         {/* Quick info */}
@@ -65,7 +65,7 @@ export default function Hero(): JSX.Element {
           </div>
           <div className="flex items-center gap-2">
             <Briefcase size={18} />
-            <span>14+ Years Experience</span>
+            <span>15+ Years Experience</span>
           </div>
         </div>
 

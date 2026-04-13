@@ -9,27 +9,27 @@ const highlights: Array<{
 }> = [
   {
     icon: <TrendingUp className="w-6 h-6" />,
-    title: "Technical Translator",
+    title: "QTC/OTC Expert",
     description:
-      "Bridging the gap between accounting guidance and business reality—turning complex standards into practical, scalable solutions",
+      "End-to-end expertise across accounting, operations, and data — from quote through cash application and revenue recognition",
   },
   {
     icon: <Users className="w-6 h-6" />,
-    title: "Team Builder",
+    title: "0→1 Functions Built",
     description:
-      "Built and scaled accounting teams across Revenue, Cost, and Billing Operations",
+      "Built revenue accounting and operations from scratch at hypergrowth companies, including the founding accounting team at Cursor",
   },
   {
     icon: <Globe className="w-6 h-6" />,
-    title: "Multi-Jurisdictional Expertise",
+    title: "15+ Tools Built with AI",
     description:
-      "Operated under AASB (Australia), ASPE & IFRS (Canada), and US GAAP—navigating diverse regulatory and audit frameworks",
+      "Built internal tools the accounting team uses daily — dashboards, provisioning queues, fraud monitoring, automated workflows",
   },
   {
     icon: <Award className="w-6 h-6" />,
-    title: "Process Automation Pioneer",
+    title: "Scale & Complexity",
     description:
-      "Reduced financial close from 45 to 5 days through automation at Stripe",
+      "Stripe, Fivetran, Cursor — multi-dimensional billing, usage-based revenue, compliance at speed across hypergrowth environments",
   },
 ];
 
@@ -47,13 +47,16 @@ export default function About(): JSX.Element {
             <span className="gradient-text">engineering</span>
           </h2>
           <p className="text-lg text-neutral-600 leading-relaxed">
-            I'm an Australian expat based in Seattle, driven by a passion for solving 
-            complex business problems that sit at the intersection of accounting, 
-            operations, and technology. Currently, I lead Revenue Accounting and 
-            Order to Cash operations at{" "}
-            <span className="font-semibold text-neutral-900">Cursor</span>, where 
-            I'm helping build the financial infrastructure for one of the fastest-growing 
-            AI developer tools companies.
+            I&apos;ve spent 15 years working at the intersection of accounting, operations, 
+            and technology — from audit through to building and leading Quote-to-Cash and 
+            Order-to-Cash functions at some of the fastest-growing, most complex companies 
+            in the world. The companies I&apos;ve worked at —{" "}
+            <span className="font-semibold text-neutral-900">Stripe</span>,{" "}
+            <span className="font-semibold text-neutral-900">Fivetran</span>,{" "}
+            <span className="font-semibold text-neutral-900">Cursor</span> — are known 
+            for exceptional product, hypergrowth, and operating at massive scale. I bring a 
+            technology-forward approach to process design and automation, and I&apos;m motivated 
+            by making finance functions that don&apos;t just keep up, but create leverage.
           </p>
         </div>
 
